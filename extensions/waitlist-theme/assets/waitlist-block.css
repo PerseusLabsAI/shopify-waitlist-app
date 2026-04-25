@@ -1,0 +1,64 @@
+.pl-waitlist__shell {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.pl-waitlist__toggle,
+.pl-waitlist__submit {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  background: #111827;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  padding: 0.9rem 1.35rem;
+}
+
+.pl-waitlist__form {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1rem;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  border-radius: 1rem;
+  background: #f9fafb;
+}
+
+.pl-waitlist__heading {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.pl-waitlist__body,
+.pl-waitlist__status {
+  margin: 0;
+  color: #4b5563;
+}
+
+.pl-waitlist__field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.pl-waitlist__field input {
+  border: 1px solid rgba(17, 24, 39, 0.18);
+  border-radius: 0.75rem;
+  font: inherit;
+  padding: 0.8rem 0.9rem;
+}
+
+.pl-waitlist__checkbox {
+  display: flex;
+  gap: 0.5rem;
+  align-items: start;
+  color: #374151;
+}
+
+.pl-waitlist__status.is-error {
+  color: #b91c1c;
+}
+
+.pl-waitlist__status.is-success {
+  color: #166534;
+}

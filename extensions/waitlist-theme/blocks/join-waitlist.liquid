@@ -1,0 +1,79 @@
+{% liquid
+  assign selected_variant = product.selected_or_first_available_variant
+  assign endpoint_url = block.settings.endpoint_url | strip
+  if endpoint_url == blank
+    assign endpoint_url = "https://shopify-waitlist-backend.vercel.app/api/waitlist"
+  endif
+%}
+
+{% if product %}
+  <div
+    class="pl-waitlist"
+    {{ block.shopify_attributes }}
+    data-endpoint-url="{{ endpoint_url }}"
+    data-product-gid="gid://shopify/Product/{{ product.id }}"
+    data-initial-variant-id="{{ selected_variant.id }}"
+    data-success-message="{{ block.settings.success_message | escape }}"
+    data-error-message="{{ block.settings.error_message | escape }}"
+  >
+    <script type="application/json" class="pl-waitlist__variants">
+      {{ product.variants | json }}
+    </script>
+
+    {% render 'waitlist-form', block: block %}
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Join Waitlist",
+  "target": "section",
+  "stylesheet": "waitlist-block.css",
+  "javascript": "waitlist-block.js",
+  "templates": ["product"],
+  "settings": [
+    {
+      "type": "text",
+      "id": "endpoint_url",
+      "label": "Backend endpoint",
+      "default": "https://shopify-waitlist-backend.vercel.app/api/waitlist"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Join the Waitlist"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Form heading",
+      "default": "Get notified when this product launches"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Form body",
+      "default": "Leave your details and we'll let you know when the sold-out variant is available."
+    },
+    {
+      "type": "text",
+      "id": "marketing_label",
+      "label": "Marketing opt-in label",
+      "default": "I want launch updates and product news"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "You're on the waitlist."
+    },
+    {
+      "type": "text",
+      "id": "error_message",
+      "label": "Fallback error message",
+      "default": "We couldn't save your request. Please try again."
+    }
+  ]
+}
+{% endschema %}

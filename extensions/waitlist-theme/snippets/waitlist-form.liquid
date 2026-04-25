@@ -1,0 +1,41 @@
+<div class="pl-waitlist__shell" hidden>
+  <button type="button" class="pl-waitlist__toggle">
+    {{ block.settings.button_label }}
+  </button>
+
+  <form class="pl-waitlist__form" hidden>
+    <div class="pl-waitlist__copy">
+      <h3 class="pl-waitlist__heading">{{ block.settings.heading }}</h3>
+      <p class="pl-waitlist__body">{{ block.settings.body }}</p>
+    </div>
+
+    <input type="hidden" name="productGid">
+    <input type="hidden" name="variantGid">
+
+    <label class="pl-waitlist__field">
+      <span>Name</span>
+      <input name="name" type="text" autocomplete="name" required>
+    </label>
+
+    <label class="pl-waitlist__field">
+      <span>Email</span>
+      <input name="email" type="email" autocomplete="email" required>
+    </label>
+
+    <label class="pl-waitlist__field">
+      <span>Phone</span>
+      <input name="phone" type="tel" autocomplete="tel">
+    </label>
+
+    <label class="pl-waitlist__checkbox">
+      <input name="marketingOptIn" type="checkbox" value="true">
+      <span>{{ block.settings.marketing_label }}</span>
+    </label>
+
+    <button type="submit" class="pl-waitlist__submit">
+      {{ block.settings.button_label }}
+    </button>
+
+    <p class="pl-waitlist__status" role="status" aria-live="polite"></p>
+  </form>
+</div>

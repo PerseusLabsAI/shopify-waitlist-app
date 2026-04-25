@@ -1,0 +1,7 @@
+api_version = "2025-10"
+uid = "ee8da060-254c-bdf2-303d-8e6ff63aaf8e0dfa8ccc"
+
+[[extensions]]
+name = "Waitlist Theme"
+handle = "waitlist-theme"
+type = "theme"

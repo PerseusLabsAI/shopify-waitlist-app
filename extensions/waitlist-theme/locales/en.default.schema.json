@@ -1,0 +1,12 @@
+{
+  "name": "Waitlist Theme",
+  "settings": {
+    "endpoint_url": "Backend endpoint",
+    "button_label": "Button label",
+    "heading": "Form heading",
+    "body": "Form body",
+    "marketing_label": "Marketing opt-in label",
+    "success_message": "Success message",
+    "error_message": "Fallback error message"
+  }
+}
