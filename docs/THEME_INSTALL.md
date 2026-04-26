@@ -39,9 +39,8 @@ You only need to change the endpoint setting if the backend URL changes.
 - Expands an inline form with:
   - name
   - email
-  - phone
   - marketing opt-in
-- Posts the data to the backend
+- Posts `{ name, email, marketingOptIn, variantGid }` to the backend
 
 ## Block settings
 

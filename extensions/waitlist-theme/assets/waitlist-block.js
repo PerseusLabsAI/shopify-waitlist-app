@@ -48,9 +48,7 @@
     const soldOut = !selectedVariant.available;
     shell.hidden = !soldOut;
 
-    const productInput = container.querySelector('input[name="productGid"]');
     const variantInput = container.querySelector('input[name="variantGid"]');
-    if (productInput) productInput.value = container.dataset.productGid || "";
     if (variantInput) variantInput.value = "gid://shopify/ProductVariant/" + selectedVariant.id;
 
     if (!soldOut && form) {
@@ -79,9 +77,7 @@
     const payload = {
       name: form.elements.name.value,
       email: form.elements.email.value,
-      phone: form.elements.phone.value,
       marketingOptIn: form.elements.marketingOptIn.checked,
-      productGid: form.elements.productGid.value,
       variantGid: form.elements.variantGid.value,
     };
 

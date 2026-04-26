@@ -11,7 +11,6 @@
     class="pl-waitlist"
     {{ block.shopify_attributes }}
     data-endpoint-url="{{ endpoint_url }}"
-    data-product-gid="gid://shopify/Product/{{ product.id }}"
     data-initial-variant-id="{{ selected_variant.id }}"
     data-success-message="{{ block.settings.success_message | escape }}"
     data-error-message="{{ block.settings.error_message | escape }}"

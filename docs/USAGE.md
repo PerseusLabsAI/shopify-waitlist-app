@@ -38,9 +38,7 @@ The block currently expects a JSON endpoint that accepts:
 
 - `name`
 - `email`
-- `phone`
 - `marketingOptIn`
-- `productGid`
 - `variantGid`
 
 ## Current backend repo

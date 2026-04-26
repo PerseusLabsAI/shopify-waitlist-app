@@ -20,11 +20,10 @@ Build a reusable "Join Waitlist" feature for sold-out product pages that can sur
 - Collect:
   - name
   - email
-  - phone
   - marketing opt-in
-- Submit to backend
+- Submit `{ name, email, marketingOptIn, variantGid }` to backend
 - Backend creates or updates a Shopify customer
-- Backend stores waitlist state on the customer
+- Backend stores waitlist state plus product and variant references on the customer
 
 ## Important operational context
 
