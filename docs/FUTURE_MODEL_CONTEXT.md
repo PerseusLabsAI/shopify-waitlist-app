@@ -23,13 +23,17 @@ Build a reusable "Join Waitlist" feature for sold-out product pages that can sur
   - marketing opt-in
 - Submit `{ name, email, marketingOptIn, variantGid }` to backend
 - Backend creates or updates a Shopify customer
-- Backend stores waitlist state plus product and variant references on the customer
+- Backend stores waitlist state on the customer using the store's actual metafield definitions
+- Current expected customer metafields are:
+  - `custom.waitlist`
+  - `custom.waitlist_products`
 
 ## Important operational context
 
 - The store's primary domain redirect can break unpublished theme preview URLs by stripping `preview_theme_id`.
 - Theme editor changes can be overwritten by pushes.
 - The Shopify app project still needs to be fully linked so `client_id` and deploy metadata are real.
+- If the block appears twice on the product page, inspect `templates/product.json` in the theme repo before changing the extension code.
 
 ## Safe next steps
 

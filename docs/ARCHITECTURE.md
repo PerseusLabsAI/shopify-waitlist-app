@@ -21,7 +21,7 @@ Make the "Join Waitlist" experience reusable across future Shopify themes withou
 - Customer metafield updates
 - Waitlist API endpoint
 
-### `shopifytheme`
+### `premium-editorial-v1-0`
 
 - Theme-only presentation layer
 - Should not own waitlist business logic
@@ -35,6 +35,9 @@ Make the "Join Waitlist" experience reusable across future Shopify themes withou
 4. The app block only reveals the UI when the selected variant is sold out.
 5. The block submits customer data to the backend endpoint.
 6. The backend creates or updates the customer and writes waitlist data.
+7. The backend writes to the store's actual customer metafield definitions, currently:
+   - `custom.waitlist`
+   - `custom.waitlist_products`
 
 ## Why this split
 
@@ -56,3 +59,4 @@ Make the "Join Waitlist" experience reusable across future Shopify themes withou
   - `write_customers`
 - Theme app extension deployment through `shopify app deploy`
 - App linkage so `client_id` is populated in `shopify.app.toml`
+- Metafield writes must match the exact namespace and key values configured in Shopify Admin custom data

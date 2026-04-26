@@ -63,3 +63,37 @@ Guardrail:
 
 - Verify repo, theme ID, and deployment target every time.
 - Prefer concrete identifiers over names alone.
+
+### 6. Backend metafield keys did not match Shopify Admin definitions
+
+Impact:
+
+- waitlist submissions looked successful but customer metafields remained blank
+
+Guardrail:
+
+- verify the exact namespace and key values in Shopify Admin custom data before implementing backend writes
+- current store definitions are `custom.waitlist` and `custom.waitlist_products`
+- do not assume generic names like `waitlist.joined` or `waitlist.variants` without checking the store
+
+### 7. Vercel was behind local backend code
+
+Impact:
+
+- the live endpoint continued running older backend behavior even after local fixes existed
+
+Guardrail:
+
+- remember that Vercel deploys from GitHub, not local files
+- after backend changes, push the backend repo before testing storefront behavior
+
+### 8. Product template ended up with duplicate app-block placements
+
+Impact:
+
+- the waitlist block appeared twice on the PDP
+
+Guardrail:
+
+- inspect `templates/product.json` after theme-editor changes
+- keep one authoritative waitlist app block placement only

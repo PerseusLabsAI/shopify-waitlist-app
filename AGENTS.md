@@ -13,7 +13,7 @@ This repo is the reusable Shopify app layer for the waitlist feature.
 
 - App repo: `/Users/sam/Documents/perseusLabs/shopify-waitlist-app`
 - Backend repo: `/Users/sam/Documents/perseusLabs/shopify-waitlist-backend`
-- Theme repo: `/Users/sam/Documents/perseusLabs/shopifytheme`
+- Theme repo: `/Users/sam/Documents/perseusLabs/premium-editorial-v1-0`
 
 ## Guardrails
 
@@ -23,6 +23,8 @@ This repo is the reusable Shopify app layer for the waitlist feature.
 - Preview changes on an unpublished theme or in app development first.
 - The storefront primary-domain redirect can strip `preview_theme_id`; do not assume a preview failure means files are missing.
 - Treat Shopify theme editor content as production data. Pull or back up before large pushes.
+- The waitlist block should render one inline form for sold-out variants only; do not reintroduce a second toggle button above the form.
+- If the waitlist block appears twice, inspect the product JSON template for duplicate app-block placements before changing extension code.
 
 ## Current state
 
@@ -30,3 +32,4 @@ This repo is the reusable Shopify app layer for the waitlist feature.
 - The waitlist UI scaffold lives in `extensions/waitlist-theme/`.
 - The backend is still the system of record for customer creation, marketing consent, and waitlist metafields.
 - `shopify.app.toml` still needs a real `client_id` after local config is linked to the Shopify app.
+- The current storefront payload contract is exactly `{ name, email, marketingOptIn, variantGid }`.
