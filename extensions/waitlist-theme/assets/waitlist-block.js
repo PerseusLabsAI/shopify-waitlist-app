@@ -35,7 +35,6 @@
 
   function syncVisibility(container) {
     const shell = container.querySelector(".pl-waitlist__shell");
-    const form = container.querySelector(".pl-waitlist__form");
     const variants = parseVariants(container);
     const selectedId = findSelectedVariantId(container);
     const selectedVariant = variants.find((variant) => String(variant.id) === String(selectedId));
@@ -50,10 +49,6 @@
 
     const variantInput = container.querySelector('input[name="variantGid"]');
     if (variantInput) variantInput.value = "gid://shopify/ProductVariant/" + selectedVariant.id;
-
-    if (!soldOut && form) {
-      form.hidden = true;
-    }
   }
 
   async function handleSubmit(event) {
@@ -118,14 +113,9 @@
 
   function bindContainer(container) {
     const shell = container.querySelector(".pl-waitlist__shell");
-    const toggle = container.querySelector(".pl-waitlist__toggle");
     const form = container.querySelector(".pl-waitlist__form");
 
-    if (!shell || !toggle || !form) return;
-
-    toggle.addEventListener("click", function () {
-      form.hidden = !form.hidden;
-    });
+    if (!shell || !form) return;
 
     form.addEventListener("submit", handleSubmit);
 
